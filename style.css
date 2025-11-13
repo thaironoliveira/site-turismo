@@ -188,7 +188,7 @@ body {
 .theme-badge-icon.active {
     opacity: 1;
     animation: shake 1.0s infinite alternate; /* Aumentando a duração da animação para ser mais suave */
-    width: 40px; /* Largura para o ícone aparecer */
+    width: 35px; /* Largura para o ícone aparecer (reduzida para evitar corte) */
     /* Garantindo que a imagem dentro do ícone não ultrapasse o contêiner */
     max-width: 100%;
     height: auto;
@@ -572,9 +572,9 @@ body {
 
 /* Novembro Azul - Cores mais quentes e gradiente */
 .tema-novembro-azul {
-    --cor-principal: #0077b6; /* Azul Médio, mais quente */
-    --cor-secundaria: #48cae4; /* Azul Claro, mais quente */
-    --cor-acento: #90e0ef; /* Azul Claro */
+    --cor-principal: #005A8D; /* Azul Escuro e Quente */
+    --cor-secundaria: #0088CC; /* Azul Médio e Quente */
+    --cor-acento: #00BFFF; /* Azul Claro */
     --gradiente-principal: linear-gradient(135deg, var(--cor-principal), var(--cor-secundaria));
 }
 
