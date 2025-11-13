@@ -88,7 +88,7 @@ body {
 
 /* Logo com Degradê */
 .logo, .logo-pacote {
-    font-size: 1.8em;
+    font-size: 1.5em; /* Reduzido de 1.8em para 1.5em */
     font-weight: 800;
     text-decoration: none;
     display: flex;
@@ -140,7 +140,7 @@ body {
 }
 
 .logo img, .logo-pacote img {
-    height: 45px;
+    height: 35px; /* Reduzido de 45px para 35px */
     width: auto;
     display: block;
 }
@@ -189,7 +189,7 @@ body {
 .theme-badge-icon.active {
     opacity: 1;
     animation: shake 1.0s infinite alternate; /* Aumentando a duração da animação para ser mais suave */
-    width: 35px; /* Largura para o ícone aparecer (reduzida para evitar corte) */
+    width: 30px; /* Largura para o ícone aparecer (reduzida para melhor proporção) */
     /* Garantindo que a imagem dentro do ícone não ultrapasse o contêiner */
     max-width: 100%;
     height: auto;
