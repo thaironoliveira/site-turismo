@@ -23,14 +23,14 @@ document.addEventListener("DOMContentLoaded", function() {
     // 1. DEFINIÇÃO DOS EVENTOS SAZONAIS
     // =================================================================
     const eventos = [
-        { mes: 0, dia: 1, classe: "tema-anonovo", icone: "fa-solid fa-champagne-glasses", texto: "Feliz Ano Novo! A Sienna Turismo deseja um 2025 cheio de viagens incríveis! 🎉" },
+        { mes: 0, dia: 1, classe: "tema-anonovo", icone: "images/icone-ano-novo.png", texto: "Feliz Ano Novo! A Sienna Turismo deseja um 2025 cheio de viagens incríveis! 🎉" },
         { mes: 3, dia: 19, classe: "tema-dia-do-indio", icone: "fa-solid fa-feather-pointed", texto: "A Sienna Turismo apoia e valoriza a cultura indígena brasileira. (Dia do Índio) 🪶" },
         { mes: 4, classe: "tema-mes-das-noivas", icone: "fa-solid fa-ring", texto: "A Sienna Turismo celebra o amor e os momentos especiais. (Mês das Noivas) 💍" },
-        { mes: 8, classe: "tema-setembro-amarelo", icone: "fa-solid fa-ribbon", texto: "A Sienna Turismo apoia a valorização da vida. (Setembro Amarelo) 💛" },
-        { mes: 9, classe: "tema-outubro-rosa", icone: "fa-solid fa-ribbon", texto: "A Sienna Turismo apoia a prevenção ao câncer de mama. (Outubro Rosa) 🎗️" },
-        { mes: 10, classe: "tema-novembro-azul", icone: "images/icone-novembro-azul-transparente.png", texto: "A Sienna Turismo apoia a saúde masculina. (Novembro Azul) 💙" },
-        { mes: 10, dia: 20, classe: "tema-consciencia-negra", icone: "fa-solid fa-hand-fist", texto: "A Sienna Turismo apoia a igualdade racial. (Dia da Consciência Negra) ✊" },
-        { mes: 11, classe: "tema-natal", icone: "fa-solid fa-gift", texto: "Boas Festas! A Sienna Turismo deseja um Natal mágico! 🎄" }
+        { mes: 8, classe: "tema-setembro-amarelo", icone: "images/icone-setembro-amarelo.png", texto: "A Sienna Turismo apoia a valorização da vida. (Setembro Amarelo) 💛" },
+        { mes: 9, classe: "tema-outubro-rosa", icone: "images/icone-outubro-rosa.png", texto: "A Sienna Turismo apoia a prevenção ao câncer de mama. (Outubro Rosa) 🎗️" },
+        { mes: 10, classe: "tema-novembro-azul", icone: "images/icone-novembro-azul-final.png", texto: "A Sienna Turismo apoia a saúde masculina. (Novembro Azul) 💙" },
+        { mes: 10, dia: 20, classe: "tema-consciencia-negra", icone: "images/icone-consciencia-negra.png", texto: "A Sienna Turismo apoia a igualdade racial. (Dia da Consciência Negra) ✊" },
+        { mes: 11, classe: "tema-natal", icone: "images/icone-natal.png", texto: "Boas Festas! A Sienna Turismo deseja um Natal mágico! 🎄" }
     ];
 
     const hoje = new Date();
