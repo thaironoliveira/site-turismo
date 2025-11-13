@@ -104,17 +104,15 @@ body {
 
 /* Estilo base para as palavras Sienna e Turismo */
 #logo-text-sienna, #logo-text-turismo {
-    /* O gradiente é aplicado aqui */
-    background: var(--gradiente-principal);
+    /* O gradiente é aplicado aqui e DEVE ser atualizado quando o tema mudar */
+    background: linear-gradient(135deg, var(--cor-principal), var(--cor-secundaria));
     -webkit-background-clip: text;
     background-clip: text;
+    -webkit-text-fill-color: transparent;
     color: transparent;
-    /* A transição deve ser na variável CSS, não na propriedade background */
+    /* Forçando a transição do gradiente */
     transition: all 3.0s ease-in-out; 
     display: inline-block;
-    /* Efeito Onda: Transição de cor */
-    transition: color 0.5s ease-in-out;
-    color: var(--cor-principal); /* Cor inicial */
 }
 
 /* Efeito Onda: Cor e Transição */
