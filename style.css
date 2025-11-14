@@ -410,8 +410,9 @@ body {
 }
 
 .btn-secundario {
-    background: var(--cor-acento);
-    color: #333;
+    background: var(--gradiente-principal); /* Gradiente aplicado */
+    color: #fff; /* Cor do texto alterada para branco */
+    transition: background 3.0s ease, transform 0.3s ease; /* Transição do gradiente */
 }
 
 .btn-secundario:hover {
@@ -830,3 +831,5 @@ body {
     justify-content: center; /* Centraliza o menu no mesmo eixo da logo */
     width: 100%; /* Garante que o nav ocupe toda a largura */
 }
+
+/* Cache buster - v26 - 2025-11-14 */
