@@ -666,7 +666,7 @@ body {
 
     .navbar nav ul {
         flex-direction: row; /* Garante a direção horizontal */
-        justify-content: flex-end; /* Alinha à direita */
+        justify-content: center; /* Centraliza o menu */
         width: 100%;
     }
 
