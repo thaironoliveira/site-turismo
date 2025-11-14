@@ -84,7 +84,7 @@ body {
     display: flex;
     flex-direction: column; /* Força a quebra de linha entre a logo e o menu */
     justify-content: center;
-    align-items: center;
+    /* Removendo align-items: center para permitir que o nav seja centralizado com margin: auto */
 }
 
 /* Logo com Degradê */
@@ -826,4 +826,5 @@ body {
 .navbar nav {
     width: 100%;
     text-align: center;
+    margin: 0 auto; /* Centraliza o bloco nav */
 }
