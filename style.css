@@ -828,4 +828,5 @@ body {
 .navbar nav {
     display: flex;
     justify-content: center; /* Centraliza o menu no mesmo eixo da logo */
+    width: 100%; /* Garante que o nav ocupe toda a largura */
 }
