@@ -303,11 +303,12 @@ body {
 /* Navegação */
 .navbar nav ul {
     list-style: none;
-    display: inline-flex !important; /* Força a exibição flexível inline */
+    display: flex !important; /* Força a exibição flexível */
     flex-direction: row !important; /* Força a direção horizontal */
     gap: 20px;
     flex-wrap: nowrap !important; /* Impede a quebra de linha */
-    margin-top: 10px; /* Adiciona um pequeno espaço entre a logo e o menu */
+    margin: 10px 0 0 0; /* Remove margens laterais e adiciona espaço superior */
+    padding: 0; /* Remove padding */
     justify-content: center; /* Centraliza os itens do menu */
 }
 
