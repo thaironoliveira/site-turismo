@@ -82,7 +82,8 @@ body {
 
 .navbar .container {
     display: flex;
-    justify-content: space-between;
+    flex-direction: column; /* Força a quebra de linha entre a logo e o menu */
+    justify-content: center;
     align-items: center;
 }
 
@@ -306,6 +307,7 @@ body {
     flex-direction: row !important; /* Força a direção horizontal */
     gap: 20px;
     flex-wrap: nowrap !important; /* Impede a quebra de linha */
+    margin-top: 10px; /* Adiciona um pequeno espaço entre a logo e o menu */
 }
 
 .navbar nav a {
