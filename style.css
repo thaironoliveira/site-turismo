@@ -84,7 +84,7 @@ body {
     display: flex;
     flex-direction: column; /* Força a quebra de linha entre a logo e o menu */
     justify-content: center;
-    /* Removendo align-items: center para permitir que o nav seja centralizado com margin: auto */
+    align-items: center; /* Centraliza a logo e o menu verticalmente */
 }
 
 /* Logo com Degradê */
@@ -303,11 +303,12 @@ body {
 /* Navegação */
 .navbar nav ul {
     list-style: none;
-    display: flex !important; /* Força a exibição flexível */
+    display: inline-flex !important; /* Força a exibição flexível inline */
     flex-direction: row !important; /* Força a direção horizontal */
     gap: 20px;
     flex-wrap: nowrap !important; /* Impede a quebra de linha */
     margin-top: 10px; /* Adiciona um pequeno espaço entre a logo e o menu */
+    justify-content: center; /* Centraliza os itens do menu */
 }
 
 .navbar nav a {
