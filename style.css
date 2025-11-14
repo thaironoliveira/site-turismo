@@ -443,10 +443,19 @@ body {
 
 .destinos-section h2 {
     text-align: center;
-    font-size: 2.5em;
     margin-bottom: 40px;
+    font-size: 2.5em;
     color: var(--cor-principal);
-    transition: color 1.5s ease-in-out;
+    transition: color 3.0s ease-in-out;
+}
+
+.gradiente-texto {
+    background-image: var(--gradiente-principal);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+    transition: all 3.0s ease-in-out;
 }
 
 .cards-container {
