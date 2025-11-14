@@ -308,7 +308,6 @@ body {
     gap: 20px;
     flex-wrap: nowrap !important; /* Impede a quebra de linha */
     margin-top: 10px; /* Adiciona um pequeno espaço entre a logo e o menu */
-    justify-content: center; /* Centraliza os itens do menu */
 }
 
 .navbar nav a {
@@ -822,4 +821,9 @@ body {
         font-size: 1.2em;
         margin-left: 5px;
     }
+}
+
+.navbar nav {
+    width: 100%;
+    text-align: center;
 }
