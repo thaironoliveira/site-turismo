@@ -825,7 +825,6 @@ body {
 }
 
 .navbar nav {
-    width: 100%;
-    text-align: center;
-    margin: 0 auto; /* Centraliza o bloco nav */
+    display: flex;
+    justify-content: center; /* Centraliza o menu no mesmo eixo da logo */
 }
