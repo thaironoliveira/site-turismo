@@ -83,7 +83,7 @@ document.addEventListener("DOMContentLoaded", function() {
                 text.split('').forEach((char, index) => {
                     const span = document.createElement('span');
                     span.textContent = char === ' ' ? '\u00A0' : char; // Mantém espaços
-                    span.style.transitionDelay = `${index * 0.1}s`; // Atraso de 100ms por letra (mais lento)
+                    span.style.transitionDelay = `${index * 0.2}s`; // Atraso de 200ms por letra (efeito onda mais visível)
                     span.classList.add('wave-letter'); // Classe para o CSS
                     element.appendChild(span);
                 });

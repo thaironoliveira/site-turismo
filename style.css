@@ -120,13 +120,13 @@ body {
 /* Efeito Onda: Cor e Transição */
 .wave-letter {
     display: inline-block;
-    transition: color 0.5s ease-in-out; /* Transição de cor para o efeito onda */
-    color: var(--cor-principal); /* Cor inicial */
+    transition: color 1.5s ease-in-out; /* Transição de cor para o efeito onda (mais lenta) */
+    color: var(--cor-principal); /* Cor inicial (roxo) */
 }
 
 /* Garante que a cor mude quando o tema estiver ativo */
 .tema-ativo .wave-letter {
-    color: var(--cor-secundaria); /* Cor que muda */
+    color: var(--cor-secundaria); /* Cor secundária do tema sazonal (azul quente) */
 }
 
 /* O atraso (transition-delay) é definido via JavaScript para cada letra. */
@@ -238,7 +238,6 @@ body {
 /* Corrigindo a cor do texto da logo para a transição */
 #logo-text-sienna, #logo-text-turismo {
     /* A cor será controlada pelos spans internos (.wave-letter) */
-    color: transparent; /* Garante que o texto original não apareça */
     white-space: nowrap; /* Impede quebra de linha dentro do span */
 }
 
