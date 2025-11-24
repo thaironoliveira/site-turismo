@@ -29,7 +29,7 @@ document.addEventListener("DOMContentLoaded", function() {
         { mes: 8, classe: "tema-setembro-amarelo", icone: "images/icone-setembro-amarelo.png", texto: "A Sienna Turismo apoia a valorização da vida. (Setembro Amarelo) 💛" },
         { mes: 9, classe: "tema-outubro-rosa", icone: "images/icone-outubro-rosa.png", texto: "A Sienna Turismo apoia a prevenção ao câncer de mama. (Outubro Rosa) 🎗️" },
         { mes: 10, classe: "tema-novembro-azul", icone: "images/icone-novembro-azul-final.png", texto: "A Sienna Turismo apoia a saúde masculina. (Novembro Azul) 💙" },
-        { mes: 10, dia: 20, classe: "tema-consciencia-negra", icone: "images/icone-consciencia-negra.png", texto: "A Sienna Turismo apoia a igualdade racial. (Dia da Consciência Negra) ✊" },
+        { mes: 10, dia: 20, classe: "tema-consciencia-negra", icone: "images/icone-consciencia-negra-novo.png", texto: "A Sienna Turismo apoia a igualdade racial. (Dia da Consciência Negra) ✊" },
         { mes: 11, classe: "tema-natal", icone: "images/icone-natal.png", texto: "Boas Festas! A Sienna Turismo deseja um Natal mágico! 🎄" }
     ];
 
