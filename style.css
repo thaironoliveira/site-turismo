@@ -1,0 +1,871 @@
+/* ============================================
+ * SIENNA TURISMO - ESTILOS PRINCIPAIS
+ * ============================================
+ * 
+ * ESTRUTURA:
+ * 1. Importações e Variáveis de Cor
+ * 2. Reset e Estilos Globais
+ * 3. Cabeçalho (Navbar)
+ * 4. Seção Hero (Banner Principal)
+ * 5. Seções de Conteúdo
+ * 6. Temas Sazonais
+ * 7. Animações
+ * 8. Responsividade
+ * ============================================ */
+
+/* --- IMPORTAÇÕES --- */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700;800&display=swap');
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css');
+
+/* ============================================
+ * 1. VARIÁVEIS DE COR (TEMA PADRÃO)
+ * ============================================ */
+
+:root {
+    /* Cores da Logo Sienna Turismo */
+    --cor-principal: #9400D3;      /* Roxo Magenta */
+    --cor-secundaria: #00BFFF;     /* Azul Claro */
+    --cor-acento: #FFD700;         /* Amarelo Ouro */
+    
+    /* Gradientes */
+    --gradiente-principal: linear-gradient(135deg, var(--cor-principal), var(--cor-secundaria));
+    --gradiente-acento: linear-gradient(135deg, var(--cor-acento), #ffeb80);
+    
+    /* Cores de Texto e Fundo */
+    --cor-texto: #333;
+    --cor-fundo: #FFFFFF;
+    --fundo-leve: #f8f9fa;
+}
+
+/* ============================================
+ * 2. RESET E ESTILOS GLOBAIS
+ * ============================================ */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth; /* Scroll suave */
+}
+
+body {
+    font-family: 'Poppins', Arial, sans-serif;
+    background-color: var(--cor-fundo);
+    color: var(--cor-texto);
+    line-height: 1.6;
+    transition: background-color 0.5s ease, color 0.5s ease;
+}
+
+.container {
+    width: 90%;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+/* ============================================
+ * 3. CABEÇALHO (NAVBAR)
+ * ============================================ */
+
+.navbar {
+    background: var(--cor-fundo);
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    padding: 1rem 0;
+    position: sticky;
+    top: 0;
+    width: 100%;
+    z-index: 100;
+    transition: background-color 0.5s ease;
+}
+
+.navbar .container {
+    display: flex;
+    flex-direction: column; /* Força a quebra de linha entre a logo e o menu */
+    justify-content: center;
+    align-items: center; /* Centraliza a logo e o menu verticalmente */
+}
+
+/* Logo com Degradê */
+.logo, .logo-pacote {
+    font-size: 1.5em; /* Reduzido de 1.8em para 1.5em */
+    font-weight: 800;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    transition: all 1.5s ease-in-out;
+    position: relative;
+    /* Adicionando flex-shrink: 0 para evitar que a logo encolha e o ícone se desloque */
+    flex-shrink: 0;
+    /* Ajuste para garantir que a logo não seja cortada em telas pequenas */
+    min-width: 0;
+    flex-wrap: nowrap;
+}
+
+/* Estilo base para as palavras Sienna e Turismo */
+#logo-text-sienna, #logo-text-turismo {
+    /* O gradiente é aplicado aqui e DEVE ser atualizado quando o tema mudar */
+    background: linear-gradient(135deg, var(--cor-principal), var(--cor-secundaria));
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+    /* Forçando a transição do gradiente */
+    transition: all 3.0s ease-in-out; 
+    display: inline-block;
+}
+
+/* Efeito Onda: Cor e Transição */
+.wave-letter {
+    display: inline-block;
+    transition: color 1.5s ease-in-out; /* Transição de cor para o efeito onda (mais lenta) */
+    color: var(--cor-principal); /* Cor inicial (roxo) */
+}
+
+/* Garante que a cor mude quando o tema estiver ativo */
+.tema-ativo .wave-letter {
+    color: var(--cor-secundaria); /* Cor secundária do tema sazonal (azul quente) */
+}
+
+/* O atraso (transition-delay) é definido via JavaScript para cada letra. */
+
+
+#logo-text-sienna {
+    font-weight: 800;
+}
+
+#logo-text-turismo {
+    font-weight: 500;
+}
+
+.logo img, .logo-pacote img {
+    height: 35px; /* Reduzido de 45px para 35px */
+    width: auto;
+    display: block;
+}
+
+/* Estilos para o Efeito Onda e Ícones */
+.logo-pacote {
+    display: flex;
+    align-items: center;
+    position: relative; /* Para posicionar o tooltip */
+    /* Garante que os elementos internos da logo fiquem centralizados */
+    justify-content: center;
+}
+
+/* Removido o estilo .logo-pacote span, pois agora usamos .wave-letter */
+
+.theme-badge-icon {
+    font-size: 1.5em;
+    color: var(--cor-principal); /* Cor inicial, será alterada pelo tema */
+    margin: 0 5px;
+    opacity: 0; /* Inicialmente invisível */
+    transition: opacity 3.0s ease-in-out, transform 0.5s ease-in-out, color 3.0s ease-in-out; /* Aumentando a transição de opacidade */
+    cursor: pointer;
+    /* Ajuste para ícones de imagem */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* Garantindo que o ícone não ocupe espaço desnecessário antes de aparecer */
+    width: 0;
+    overflow: hidden;
+    transition: width 0.5s ease-in-out, opacity 3.0s ease-in-out, transform 0.5s ease-in-out, color 3.0s ease-in-out;
+}
+
+.tema-ativo .theme-badge-icon {
+    color: var(--cor-secundaria); /* Cor que muda com o tema */
+}
+
+/* Animação de Balanço/Vibração */
+@keyframes shake {
+    0% { transform: rotate(0deg); }
+    25% { transform: rotate(5deg); }
+    50% { transform: rotate(-5deg); }
+    75% { transform: rotate(5deg); }
+    100% { transform: rotate(0deg); }
+}
+
+.theme-badge-icon.active {
+    opacity: 1;
+    animation: shake 1.0s infinite alternate; /* Aumentando a duração da animação para ser mais suave */
+    width: 30px; /* Largura para o ícone aparecer (reduzida para melhor proporção) */
+    /* Garantindo que a imagem dentro do ícone não ultrapasse o contêiner */
+    max-width: 100%;
+    height: auto;
+    /* Forçando o ícone a ser exibido corretamente */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Tooltip */
+#theme-tooltip {
+    visibility: hidden;
+    width: 250px;
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 10px;
+    position: absolute;
+    z-index: 1;
+    bottom: 150%;
+    left: 50%;
+    margin-left: -125px;
+    opacity: 0;
+    transition: opacity 0.3s;
+    font-size: 0.85em;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+.theme-badge-icon:hover ~ #theme-tooltip {
+    visibility: visible;
+    opacity: 1;
+}
+
+/* Ajuste para o bigode */
+.fa-mustache {
+    transform: rotate(10deg); /* Inclinação leve */
+    transition: transform 0.5s ease-in-out;
+}
+
+#theme-icon-left.fa-mustache {
+    transform: scaleX(-1) rotate(10deg); /* Inverte e inclina para o lado esquerdo */
+}
+
+/* Corrigindo a cor do texto da logo para a transição */
+#logo-text-sienna, #logo-text-turismo {
+    /* A cor será controlada pelos spans internos (.wave-letter) */
+    white-space: nowrap; /* Impede quebra de linha dentro do span */
+}
+
+/* Corrigindo o problema de visibilidade da logo */
+.logo-pacote img {
+    display: block;
+}
+
+/* Selo do Tema (Ícone Sazonal) */
+#theme-badge {
+    display: none;
+    /* Posicionamento para ficar antes do nome */
+    position: relative;
+    font-size: 1.8em;
+    color: var(--cor-principal);
+    cursor: help;
+    transition: color 1.5s ease-in-out;
+    animation: pulsar 2s infinite alternate;
+    z-index: 101;
+    margin-right: 5px; /* Espaço entre o ícone e o nome */
+}
+
+#theme-icon {
+    transition: color 1.5s ease-in-out;
+}
+
+/* Garante que a imagem da logo apareça */
+.logo img, .logo-pacote img {
+    display: block;
+}
+
+/* Garante que o texto da logo apareça */
+.logo #logo-text-sienna, .logo #logo-text-turismo, .logo-pacote #logo-text-sienna, .logo-pacote #logo-text-turismo {
+    display: inline-block;
+}
+
+/* Tooltip do Tema */
+#theme-tooltip {
+    visibility: hidden;
+    width: 250px;
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 10px;
+    position: absolute;
+    z-index: 1;
+    bottom: 150%;
+    left: 50%;
+    margin-left: -125px;
+    opacity: 0;
+    transition: opacity 0.3s;
+    font-size: 0.85em;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+#theme-badge:hover #theme-tooltip {
+    visibility: visible;
+    opacity: 1;
+}
+
+/* Navegação */
+.navbar nav ul {
+    list-style: none;
+    display: flex !important; /* Força a exibição flexível */
+    flex-direction: row !important; /* Força a direção horizontal */
+    gap: 20px;
+    flex-wrap: nowrap !important; /* Impede a quebra de linha */
+    margin: 10px 0 0 0; /* Remove margens laterais e adiciona espaço superior */
+    padding: 0; /* Remove padding */
+    justify-content: center; /* Centraliza os itens do menu */
+}
+
+.navbar nav a {
+    text-decoration: none;
+    color: var(--cor-texto);
+    font-weight: 500;
+    padding-bottom: 5px;
+    transition: all 0.3s;
+    border-bottom: 2px solid transparent;
+}
+
+.navbar nav a:hover,
+.navbar nav a.active {
+    color: var(--cor-principal);
+    border-bottom: 2px solid var(--cor-principal);
+}
+
+/* ============================================
+ * 4. SEÇÃO HERO (BANNER PRINCIPAL)
+ * ============================================ */
+
+.hero {
+    height: 70vh;
+    min-height: 400px;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: #FFF;
+    padding-top: 80px;
+    overflow: hidden;
+}
+
+.slideshow-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+}
+
+.slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    opacity: 0;
+    transition: opacity 1.5s ease-in-out;
+    filter: brightness(0.5);
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+}
+
+.hero h1 {
+    font-size: 3em;
+    margin-bottom: 10px;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+}
+
+.hero p {
+    font-size: 1.2em;
+    margin-bottom: 30px;
+    max-width: 600px;
+    margin-left: auto; /* Centraliza o texto */
+    margin-right: auto; /* Centraliza o texto */
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+}
+
+/* ============================================
+ * 5. BOTÕES E ELEMENTOS INTERATIVOS
+ * ============================================ */
+
+.btn-primario, .btn-secundario, .btn-whatsapp, .btn-comprar, .btn-pagar-final {
+    text-decoration: none;
+    padding: 12px 25px;
+    border-radius: 5px;
+    font-weight: 700;
+    transition: all 0.3s;
+    cursor: pointer;
+    border: none;
+    display: inline-block;
+}
+
+.btn-primario {
+    background: var(--gradiente-principal);
+    color: white;
+}
+
+.btn-primario:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+.btn-secundario {
+    background: var(--gradiente-principal); /* Gradiente aplicado */
+    color: #fff; /* Cor do texto alterada para branco */
+    transition: background 3.0s ease, transform 0.3s ease; /* Transição do gradiente */
+}
+
+.btn-secundario:hover {
+    background: var(--cor-principal);
+    color: white;
+    transform: translateY(-2px);
+}
+
+.btn-whatsapp {
+    background: #25D366;
+    color: white;
+    font-size: 1.1em;
+}
+
+.btn-whatsapp:hover {
+    background: #1fa952;
+    transform: scale(1.05);
+}
+
+/* ============================================
+ * 6. SEÇÕES DE CONTEÚDO
+ * ============================================ */
+
+/* Seção de Destinos */
+.destinos-section {
+    padding: 60px 0;
+    background-color: var(--fundo-leve);
+    transition: background-color 1.5s ease-in-out;
+}
+
+.destinos-section h2 {
+    text-align: center;
+    margin-bottom: 40px;
+    font-size: 2.5em;
+    color: var(--cor-principal);
+    transition: color 3.0s ease-in-out;
+}
+
+.gradiente-texto {
+    background-image: var(--gradiente-principal);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+    transition: all 3.0s ease-in-out;
+}
+
+.cards-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.card-destino {
+    background: white;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    transition: all 0.3s;
+}
+
+.card-destino:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0,0,0,0.15);
+}
+
+.card-destino img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 8px 8px 0 0;
+}
+
+.card-content {
+    padding: 20px;
+}
+
+.card-content h3 {
+    color: var(--cor-principal);
+    margin-bottom: 10px;
+    transition: color 1.5s ease-in-out;
+}
+
+.card-content p {
+    color: #666;
+    margin-bottom: 15px;
+    font-size: 0.95em;
+}
+
+.preco {
+    display: block;
+    font-size: 1.3em;
+    font-weight: 700;
+    color: var(--cor-acento);
+    margin-bottom: 15px;
+    transition: color 1.5s ease-in-out;
+}
+
+/* Seção Instagram */
+.instagram-section {
+    padding: 60px 0;
+    background-color: var(--fundo-leve);
+    transition: background-color 1.5s ease-in-out;
+}
+
+.instagram-section h2 {
+    font-size: 2.5em;
+    margin-bottom: 20px;
+}
+
+/* Seção CTA (Call To Action) */
+.cta-section {
+    background: var(--gradiente-principal);
+    color: white;
+    padding: 60px 0;
+    text-align: center;
+    transition: background 1.5s ease-in-out;
+}
+
+.cta-section h2 {
+    font-size: 2em;
+    margin-bottom: 20px;
+    color: white; /* Força a cor branca */
+}
+
+.cta-section p {
+    font-size: 1.1em;
+    margin-bottom: 30px;
+}
+
+/* Footer */
+.site-footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 20px 0;
+    font-size: 0.9em;
+}
+
+.site-footer .social-links {
+    margin-top: 15px;
+}
+
+.site-footer .social-link {
+    color: white;
+    text-decoration: none;
+    font-size: 1.1em;
+    transition: color 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.site-footer .social-link:hover {
+    color: #E1306C; /* Cor do Instagram */
+}
+
+.site-footer .social-link i {
+    font-size: 1.3em;
+}
+
+/* ============================================
+ * 7. TEMAS SAZONAIS
+ * ============================================ */
+
+/* Ano Novo (Janeiro) */
+.tema-anonovo {
+    --cor-principal: #FFD700;
+    --cor-secundaria: #FF6B6B;
+    --cor-acento: #4ECDC4;
+    --gradiente-principal: linear-gradient(135deg, var(--cor-principal), var(--cor-secundaria));
+}
+
+/* Dia do Índio (Abril) */
+.tema-dia-do-indio {
+    --cor-principal: #8B4513;
+    --cor-secundaria: #FFD700;
+    --cor-acento: #006400;
+    --gradiente-principal: linear-gradient(135deg, var(--cor-principal), var(--cor-secundaria));
+}
+
+/* Mês das Noivas (Maio) */
+.tema-mes-das-noivas {
+    --cor-principal: #FFC0CB;
+    --cor-secundaria: #FFFFFF;
+    --cor-acento: #9400D3;
+    --gradiente-principal: linear-gradient(135deg, var(--cor-principal), var(--cor-secundaria));
+    --cor-texto: #333;
+}
+
+/* Setembro Amarelo - Cores mais vibrantes */
+.tema-setembro-amarelo {
+    --cor-principal: #FFC300; /* Amarelo Ouro Forte */
+    --cor-secundaria: #FFDD33; /* Amarelo Claro Vibrante */
+    --cor-acento: #000000;
+    --gradiente-principal: linear-gradient(135deg, var(--cor-principal), var(--cor-secundaria));
+    --cor-texto: #000000;
+}
+
+/* Outubro Rosa - Cores mais vibrantes */
+.tema-outubro-rosa {
+    --cor-principal: #E91E63; /* Rosa Pink Forte */
+    --cor-secundaria: #F8BBD0; /* Rosa Claro Vibrante */
+    --cor-acento: #800080;
+    --gradiente-principal: linear-gradient(135deg, var(--cor-principal), var(--cor-secundaria));
+}
+
+/* Novembro Azul - Cores mais quentes e gradiente */
+.tema-novembro-azul {
+    --cor-principal: #005A8D; /* Azul Escuro e Quente */
+    --cor-secundaria: #0088CC; /* Azul Médio e Quente */
+    --cor-acento: #00BFFF; /* Azul Claro */
+    --gradiente-principal: linear-gradient(135deg, var(--cor-principal), var(--cor-secundaria));
+}
+
+/* Dia da Consciência Negra (20 de Novembro) */
+.tema-consciencia-negra {
+    --cor-principal: #000000;
+    --cor-secundaria: #FFD700;
+    --cor-acento: #8B0000;
+    --gradiente-principal: linear-gradient(135deg, var(--cor-principal), var(--cor-secundaria));
+}
+
+/* Natal (Dezembro) */
+.tema-natal {
+    --cor-principal: #FF0000;
+    --cor-secundaria: #008000;
+    --cor-acento: #FFD700;
+    --gradiente-principal: linear-gradient(135deg, var(--cor-principal), var(--cor-secundaria));
+}
+
+/* Transição Suave do Tema (Efeito Mística) - Aumentando a duração para ser mais perceptível */
+.tema-ativo {
+    transition:
+        --cor-principal 3.0s ease-in-out, /* Dobrando a duração */
+        --cor-secundaria 3.0s ease-in-out, /* Dobrando a duração */
+        --cor-acento 3.0s ease-in-out, /* Dobrando a duração */
+        --gradiente-principal 3.0s ease-in-out, /* Dobrando a duração */
+        color 3.0s ease-in-out,
+        background-color 3.0s ease-in-out;
+}
+
+/* ============================================
+ * 8. ANIMAÇÕES
+ * ============================================ */
+
+@keyframes pulsar {
+    0% {
+        transform: scale(1);
+        opacity: 1;
+    }
+    50% {
+        transform: scale(1.1);
+        opacity: 0.8;
+    }
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.card-destino {
+    animation: fadeIn 0.5s ease-in;
+}
+
+/* ============================================
+ * 9. RESPONSIVIDADE
+ * ============================================ */
+
+@media (max-width: 768px) {
+    /* Ajustes para telas de tablet */
+    .navbar .container {
+        flex-wrap: nowrap; /* Impede que o menu quebre a linha */
+    }
+
+    .navbar nav ul {
+        flex-direction: row; /* Garante a direção horizontal */
+        justify-content: center; /* Centraliza o menu */
+        width: 100%;
+    }
+
+    .hero h1 {
+        font-size: 2.5em; /* Reduz a fonte do banner */
+    }
+
+    .hero p {
+        font-size: 1.1em;
+    }
+
+    .cards-container {
+        grid-template-columns: 1fr; /* Empilha os cards em telas menores */
+    }
+}@media (max-width: 550px) {
+    /* Força o menu a ser horizontal em telas muito pequenas */
+    .navbar .container {
+        flex-direction: row; /* Mantém a logo e o menu lado a lado */
+        flex-wrap: wrap; /* Permite que o menu quebre para a linha de baixo se não couber */
+        justify-content: space-between;
+    }
+
+    .navbar nav {
+        width: 100%; /* Ocupa a largura total para centralizar */
+        text-align: center;
+    }
+
+    .navbar nav ul {
+        justify-content: space-around !important; /* Distribui o espaço entre os itens */
+        flex-wrap: nowrap !important; /* IMPEDE a quebra de linha para forçar o horizontal */
+        padding: 0 10px; /* Adiciona um pequeno padding para não colar nas bordas */
+    } {
+        font-size: 1em;
+    }
+}
+
+@media (max-width: 1024px) {
+    .cards-container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    /* Navbar - Mantém horizontal até 768px */
+    .navbar .container {
+        /* Mantém o flex-direction: row padrão */
+        flex-wrap: wrap; /* Permite quebra de linha se necessário */
+    }
+
+    .navbar nav {
+        margin-left: auto; /* Empurra a navegação para a direita */
+    }
+
+    /* Hero */
+    .hero h1 {
+        font-size: 2em;
+    }
+
+    .hero p {
+        font-size: 1em;
+    }
+
+    /* Cards */
+    .cards-container {
+        grid-template-columns: 1fr;
+    }
+
+    /* Seções */
+    .destinos-section h2 {
+        font-size: 2em;
+    }
+
+    .cta-section h2 {
+        font-size: 1.5em;
+    }
+
+    /* Tooltip */
+    #theme-tooltip {
+        width: 200px;
+        margin-left: -100px;
+    }
+}
+
+@media (max-width: 550px) {
+    /* Navbar - Torna vertical em telas muito pequenas */
+    .navbar .container {
+        flex-direction: column;
+        text-align: center;
+        gap: 15px;
+    }
+
+    .navbar nav {
+        margin-left: 0;
+    }
+
+    .navbar nav ul {
+        flex-direction: column;
+        gap: 10px;
+    }
+}
+
+    /* Hero */
+    .hero h1 {
+        font-size: 2em;
+    }
+
+    .hero p {
+        font-size: 1em;
+    }
+
+    /* Cards */
+    .cards-container {
+        grid-template-columns: 1fr;
+    }
+
+    /* Seções */
+    .destinos-section h2 {
+        font-size: 2em;
+    }
+
+    .cta-section h2 {
+        font-size: 1.5em;
+    }
+
+    /* Tooltip */
+    #theme-tooltip {
+        width: 200px;
+        margin-left: -100px;
+    }
+}
+
+@media (max-width: 480px) {
+    .logo {
+        font-size: 1.3em;
+    }
+
+    .logo img {
+        height: 35px;
+    }
+
+    .hero h1 {
+        font-size: 1.5em;
+    }
+
+    .hero p {
+        font-size: 0.9em;
+    }
+
+    .btn-primario, .btn-secundario {
+        padding: 10px 20px;
+        font-size: 0.9em;
+    }
+
+    #theme-badge {
+        font-size: 1.2em;
+        margin-left: 5px;
+    }
+}
+
+.navbar nav {
+    display: flex;
+    justify-content: center; /* Centraliza o menu no mesmo eixo da logo */
+    width: 100%; /* Garante que o nav ocupe toda a largura */
+}
+
+/* Cache buster - v26 - 2025-11-14 */

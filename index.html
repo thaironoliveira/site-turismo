@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sienna Turismo - Sua Próxima Viagem Começa Aqui</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="mystique-effect.css">
+    <script src="mystique-effect.js" defer></script>
+    <script src="themes.js" defer></script>
+</head>
+
+<body>
+
+    <!-- ============================================
+         CABEÇALHO (NAVBAR)
+         ============================================ -->
+    <header class="navbar">
+        <div class="container">
+            <a href="index.html" class="logo">
+                <!-- ÍCONE ESQUERDO DO TEMA SAZONAL -->
+                <div id="theme-badge-left" class="theme-badge-icon">
+                    <img id="theme-icon-left" src="images/icone-novembro-azul-final.png" alt="Ícone do Tema"
+                        style="height: 30px; display: none;">
+                </div>
+                <span id="logo-text-sienna">Sienna</span>
+                <span id="logo-text-turismo">Turismo</span>
+                <img src="Logo-Sienna-Turismo.png.png" alt="Sienna Turismo Logo">
+                <!-- ÍCONE DIREITO DO TEMA SAZONAL -->
+                <div id="theme-badge-right" class="theme-badge-icon">
+                    <img id="theme-icon-right" src="images/icone-novembro-azul-final.png" alt="Ícone do Tema"
+                        style="height: 30px; display: none;">
+                </div>
+                <!-- Tooltip único para o ícone -->
+                <span id="theme-tooltip">
+                    <span id="theme-tooltip-text"></span>
+                </span>
+            </a>
+            <nav>
+                <ul>
+                    <li><a href="#inicio" class="active">Início</a></li>
+                    <li><a href="#destinos">Destinos</a></li>
+                    <li><a href="#contato">Contato</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- ============================================
+         SEÇÃO HERO (BANNER PRINCIPAL COM SLIDESHOW)
+         ============================================ -->
+    <section id="inicio" class="hero">
+        <div class="slideshow-container">
+            <!-- SLIDESHOW DE IMAGENS DOS DESTINOS -->
+            <!-- As imagens trocam a cada 5 segundos -->
+            <div class="slide" style="background-image: url('porto.jpg.png');"></div>
+            <div class="slide" style="background-image: url('caldas.jpg.png');"></div>
+            <div class="slide" style="background-image: url('piri.jpg.png');"></div>
+        </div>
+        <div class="hero-content container">
+            <h1>Aqui você pode!</h1>
+            <p>Sua única preocupação é arrumar as malas.</p>
+            <a href="#destinos" class="btn-primario">Ver Pacotes</a>
+        </div>
+    </section>
+
+    <!-- ============================================
+         SEÇÃO DE DESTINOS (CARDS COM PACOTES)
+         ============================================ -->
+    <section id="destinos" class="destinos-section">
+        <div class="container">
+            <h2 class="gradiente-texto">Nossas Excursões Principais</h2>
+            <div class="cards-container">
+                <!-- CARD 1: CALDAS NOVAS -->
+                <div class="card-destino">
+                    <img src="caldas.jpg.png" alt="Foto de Caldas Novas - Termas">
+                    <div class="card-content">
+                        <h3 class="gradiente-texto">Excursão Caldas Novas</h3>
+                        <p>Relaxe nas maiores fontes termais do mundo. Transporte em ônibus leito e hotel 5 estrelas.
+                        </p>
+                        <a href="pacote-caldas.html" class="btn-secundario">Ver Detalhes</a>
+                    </div>
+                </div>
+
+                <!-- CARD 2: PIRENÓPOLIS -->
+                <div class="card-destino">
+                    <img src="piri.jpg.png" alt="Foto de Pirenópolis - Centro Histórico">
+                    <div class="card-content">
+                        <h3 class="gradiente-texto">Excursão Pirenópolis</h3>
+                        <p>Aventura e história te esperam. Pacote completo com trilhas, cachoeiras e noite na Rua do
+                            Lazer.</p>
+                        <a href="pacote-piri.html" class="btn-secundario">Ver Detalhes</a>
+                    </div>
+                </div>
+
+                <!-- CARD 3: PORTO SEGURO -->
+                <div class="card-destino">
+                    <img src="porto.jpg.png" alt="Foto de Porto Seguro - Praia">
+                    <div class="card-content">
+                        <h3 class="gradiente-texto">Excursão Porto Seguro</h3>
+                        <p>Sol, praia e a melhor vida noturna da Bahia. All-inclusive para você não se preocupar com
+                            nada.</p>
+                        <a href="pacote-porto.html" class="btn-secundario">Ver Detalhes</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================
+         SEÇÃO INSTAGRAM FEED
+         ============================================ -->
+    <section class="instagram-section">
+        <div class="container">
+            <h2 class="gradiente-texto" style="text-align: center; margin-bottom: 30px;">Siga-nos no Instagram</h2>
+            <p style="text-align: center; margin-bottom: 40px; color: #666;">
+                Acompanhe nossas viagens, promoções e momentos incríveis dos nossos clientes!
+            </p>
+
+            <!-- Widget do Instagram (Elfsight) -->
+            <script src="https://static.elfsight.com/platform/platform.js" data-use-service-core defer></script>
+            <div class="elfsight-app-d8e0c8f5-6f5e-4c5a-9e5a-0c8f5e6f5e6f" data-elfsight-app-lazy></div>
+
+            <div style="text-align: center; margin-top: 30px;">
+                <a href="https://www.instagram.com/sienna.turismo/" target="_blank" class="btn-secundario">
+                    <i class="fab fa-instagram"></i> Seguir @sienna.turismo
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================
+         SEÇÃO CTA (CALL TO ACTION - WHATSAPP)
+         ============================================ -->
+    <section id="contato" class="cta-section">
+        <div class="container">
+            <h2>Ainda tem dúvidas?</h2>
+            <p>Nosso assistente virtual está pronto para te ajudar a fechar o pacote perfeito, 24h por dia, 7 dias por
+                semana.</p>
+            <a href="https://wa.me/5561991858785?text=Ol%C3%A1!%20Gostaria%20de%20saber%20mais%20sobre%20os%20pacotes%20da%20Sienna%20Turismo."
+                target="_blank" class="btn-whatsapp">
+                <i class="fab fa-whatsapp"></i> Chamar no WhatsApp
+            </a>
+        </div>
+    </section>
+
+    <!-- ============================================
+         FOOTER
+         ============================================ -->
+    <footer class="site-footer">
+        <p>© 2025 Sienna Turismo. Todos os direitos reservados.</p>
+        <div class="social-links">
+            <a href="https://www.instagram.com/sienna.turismo/" target="_blank" rel="noopener noreferrer"
+                class="social-link">
+                <i class="fab fa-instagram"></i> @sienna.turismo
+            </a>
+        </div>
+    </footer>
+
+    <!-- ============================================
+         SCRIPT DE SLIDESHOW
+         ============================================ -->
+    <script>
+        // Controla o slideshow de imagens no hero
+        let slideIndex = 0;
+        mostrarSlides();
+
+        function mostrarSlides() {
+            let slides = document.querySelectorAll('.slideshow-container .slide');
+
+            // Esconde todos os slides
+            for (let i = 0; i < slides.length; i++) {
+                slides[i].style.opacity = 0;
+            }
+
+            // Incrementa o índice
+            slideIndex++;
+
+            // Volta para o primeiro slide se passar do total
+            if (slideIndex > slides.length) {
+                slideIndex = 1;
+            }
+
+            // Mostra o slide atual
+            if (slides.length > 0) {
+                slides[slideIndex - 1].style.opacity = 1;
+            }
+
+            // Chama a função novamente após 5 segundos
+            setTimeout(mostrarSlides, 5000);
+        }
+    </script>
+</body>
+
+</html>

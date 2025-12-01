@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pacote Porto Seguro - Sienna Turismo</title>
+    <link rel="stylesheet" href="style.css">
+  <script src="themes.js" defer></script>   <style>
+        /* Estilos específicos para a página de pacotes */
+        .pacote-header {
+            background: linear-gradient(135deg, rgba(148, 0, 211, 0.8), rgba(0, 191, 255, 0.8)), url('porto.jpg.png');
+            background-size: cover;
+            background-position: center;
+            color: white            padding: 100px 0 60px;
+            text-align: center;
+            /* Corrigindo a sobreposição do menu fixo */
+            padding-top: 100px; /* Aumenta o padding superior para compensar o menu fixo */ sobreposição do menu fixo */
+            padding-top: 100px; /* Aumenta o padding superior para compensar o menu fixo */
+        }
+
+        .pacote-header h1 {
+            font-size: 3em;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+            color: white; /* Corrigindo para branco */
+        }
+
+        .pacote-header p {
+            font-size: 1.3em;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+            color: white; /* Corrigindo para branco */
+        }
+
+        .pacote-content {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 30px;
+            padding: 40px 0;
+        }
+
+        .pacote-detalhes h2 {
+            color: var(--cor-principal);
+            margin-bottom: 20px;
+            font-size: 1.8em;
+            transition: color 1.5s ease-in-out;
+        }
+
+        .pacote-detalhes p {
+            margin-bottom: 15px;
+            line-height: 1.8;
+            color: #555;
+        }
+
+        .pacote-detalhes ul {
+            list-style: none;
+            margin-bottom: 20px;
+        }
+
+        .pacote-detalhes li {
+            padding: 10px 0;
+            border-bottom: 1px solid #eee;
+            display: flex;
+            align-items: center;
+        }
+
+        .pacote-detalhes li:before {
+            content: "✓";
+            color: var(--cor-principal);
+            font-weight: bold;
+            margin-right: 10px;
+            font-size: 1.2em;
+            transition: color 1.5s ease-in-out;
+        }
+
+        /* Galeria de Imagens */
+        .galeria-hoteis {
+            margin: 40px 0;
+        }
+
+        .galeria-hoteis h3 {
+            color: var(--cor-principal);
+            margin-bottom: 20px;
+            font-size: 1.5em;
+            transition: color 1.5s ease-in-out;
+        }
+
+        .galeria-container {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+        }
+
+        .galeria-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            cursor: pointer;
+            transition: transform 0.3s;
+        }
+
+        .galeria-item:hover {
+            transform: scale(1.05);
+        }
+
+        .galeria-item img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .galeria-item-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+            color: white;
+            padding: 15px;
+            transform: translateY(100%);
+            transition: transform 0.3s;
+        }
+
+        .galeria-item:hover .galeria-item-overlay {
+            transform: translateY(0);
+        }
+
+        /* Sidebar de Resumo */
+        .pacote-resumo {
+            background: var(--fundo-leve);
+            padding: 20px;
+            border-radius: 8px;
+            height: fit-content;
+            position: sticky;
+            top: 100px;
+            transition: background-color 1.5s ease-in-out;
+        }
+
+        .pacote-resumo h3 {
+            color: var(--cor-principal);
+            margin-bottom: 15px;
+            transition: color 1.5s ease-in-out;
+        }
+
+        .resumo-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 10px 0;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .resumo-item:last-child {
+            border-bottom: none;
+        }
+
+        .resumo-label {
+            font-weight: 600;
+            color: #666;
+        }
+
+        .resumo-valor {
+            color: var(--cor-principal);
+            font-weight: 700;
+            transition: color 1.5s ease-in-out;
+        }
+
+        .preco-total {
+            background: var(--gradiente-principal);
+            color: white;
+            padding: 15px;
+            border-radius: 5px;
+            text-align: center;
+            margin: 20px 0;
+            font-size: 1.3em;
+            font-weight: bold;
+            transition: background 1.5s ease-in-out;
+        }
+
+        .btn-comprar {
+            width: 100%;
+            background: var(--gradiente-principal);
+            color: white;
+            padding: 15px;
+            border: none;
+            border-radius: 5px;
+            font-size: 1em;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .btn-comprar:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        }
+
+        /* Responsividade */
+        @media (max-width: 768px) {
+            .pacote-content {
+                grid-template-columns: 1fr;
+            }
+
+            .pacote-resumo {
+                position: static;
+                top: auto;
+            }
+
+            .galeria-container {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .pacote-header h1 {
+                font-size: 2em;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .galeria-container {
+                grid-template-columns: 1fr;
+            }
+
+            .pacote-header {
+                padding: 80px 0 40px;
+            }
+
+            .pacote-header h1 {
+                font-size: 1.5em;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- CABEÇALHO -->
+    <header class="navbar">
+        <div class="container">
+            <a href="index.html" class="logo-pacote">
+                <!-- ÍCONE ESQUERDO DO TEMA SAZONAL -->
+                <div id="theme-badge-left" class="theme-badge-icon">
+                    <img id="theme-icon-left" src="images/icone-novembro-azul-final.png" alt="Ícone do Tema" style="height: 30px; display: none;">
+                </div>
+                <span id="logo-text-sienna">Sienna</span>
+                <span id="logo-text-turismo">Turismo</span>
+                <img src="Logo-Sienna-Turismo.png.png" alt="Sienna Turismo Logo">
+                <!-- ÍCONE DIREITO DO TEMA SAZONAL -->
+                <div id="theme-badge-right" class="theme-badge-icon">
+                    <img id="theme-icon-right" src="images/icone-novembro-azul-final.png" alt="Ícone do Tema" style="height: 30px; display: none;">
+                </div>
+                <!-- Tooltip único para o ícone -->
+                <span id="theme-tooltip">
+                    <span id="theme-tooltip-text"></span>
+                </span>
+            </a>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Voltar</a></li>
+                    <li><a href="index.html#destinos">Destinos</a></li>
+                    <li><a href="index.html#contato">Contato</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- HEADER DO PACOTE -->
+    <section class="pacote-header">
+        <div class="container">
+            <h1>Porto Seguro - Sol, Praia e História</h1>
+            <p>O melhor da Bahia com conforto e exclusividade</p>
+        </div>
+    </section>
+
+    <!-- CONTEÚDO DO PACOTE -->
+    <section class="container">
+        <div class="pacote-content">
+            <!-- COLUNA ESQUERDA: DETALHES -->
+            <div class="pacote-detalhes">
+                <h2>Sobre o Pacote</h2>
+                <p>
+                    Porto Seguro é o berço do Brasil e um dos destinos de praia mais vibrantes do país. Este pacote oferece uma experiência completa de sol, mar e história, com transporte em ônibus e acesso aos melhores pontos turísticos.
+                </p>
+
+                <h2>O que está incluído</h2>
+                <ul>
+                    <li>Transporte em ônibus de turismo</li>
+                    <li>Hospedagem (consultar opções via WhatsApp)</li>
+                    <li>Passeios (confirmar com assistente via WhatsApp)</li>
+                    <li>Seguro viagem incluído</li>
+                </ul>
+
+                <h2>Galeria de Hotéis</h2>
+                <div class="galeria-hoteis">
+                    <h3>Conheça os hotéis parceiros</h3>
+                    <div class="galeria-container">
+                        <!-- RESORT 1 -->
+                        <div class="galeria-item">
+                            <img src="porto-seguro/hotel-1.jpg" alt="Resort La Torre">
+                            <div class="galeria-item-overlay">
+                                <strong>Resort La Torre</strong>
+                                <p>All-Inclusive na Praia do Mutá</p>
+                            </div>
+                        </div>
+
+                        <!-- RESORT 2 -->
+                        <div class="galeria-item">
+                            <img src="porto-seguro/hotel-2.jpg" alt="Porto Seguro Praia Resort">
+                            <div class="galeria-item-overlay">
+                                <strong>Porto Seguro Praia Resort</strong>
+                                <p>Pé na areia e muita diversão</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <h2>Informações Adicionais</h2>
+                <p>
+                    <strong>Duração:</strong> 7 dias<br>
+                    <strong>Datas e horários:</strong> Informar via WhatsApp<br>
+                    <strong>Transporte:</strong> Somente ônibus de turismo<br>
+                    <strong>Capacidade:</strong> Grupos de até 45 pessoas<br>
+                    <strong>Melhor época:</strong> Março a Outubro
+                </p>
+            </div>
+
+            <!-- COLUNA DIREITA: RESUMO E COMPRA -->
+            <div class="pacote-resumo">
+                <h3>Consultar Preços e Reservar</h3>
+                
+                <p style="text-align: center; color: #666; margin: 20px 0;">
+                    Os preços variam de acordo com a data e disponibilidade. Entre em contato para consultar valores e fazer sua reserva!
+                </p>
+
+                <a href="https://wa.me/5561991858785?text=Ol%C3%A1!%20Gostaria%20de%20saber%20mais%20sobre%20o%20pacote%20de%20Porto%20Seguro%20e%20consultar%20pre%C3%A7os." target="_blank" class="btn-comprar">
+                    <i class="fab fa-whatsapp"></i> Consultar via WhatsApp
+                </a>
+
+                <p style="text-align: center; color: #666; font-size: 0.85em; margin-top: 15px;">
+                    Atendimento 24h por dia, 7 dias por semana
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="site-footer">
+        <p>© 2025 Sienna Turismo. Todos os direitos reservados.</p>
+        <div class="social-links">
+            <a href="https://www.instagram.com/sienna.turismo/" target="_blank" rel="noopener noreferrer" class="social-link">
+                <i class="fab fa-instagram"></i> @sienna.turismo
+            </a>
+        </div>
+    </footer>
+
+</body>
+</html>
