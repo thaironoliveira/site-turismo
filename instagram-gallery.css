@@ -1,0 +1,80 @@
+/* ============================================
+ * GALERIA INSTAGRAM (ESTÁTICA)
+ * ============================================ */
+
+.instagram-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+    margin-bottom: 30px;
+}
+
+.instagram-item {
+    position: relative;
+    display: block;
+    overflow: hidden;
+    border-radius: 10px;
+    aspect-ratio: 1 / 1;
+    /* Garante que sejam quadrados */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.instagram-item:hover {
+    transform: translateY(-5px);
+}
+
+.instagram-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.instagram-item:hover img {
+    transform: scale(1.1);
+}
+
+/* Overlay com ícone e texto */
+.insta-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    /* Fundo escuro transparente */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    color: white;
+    font-weight: 500;
+}
+
+.instagram-item:hover .insta-overlay {
+    opacity: 1;
+}
+
+.insta-overlay i {
+    font-size: 2em;
+    margin-bottom: 10px;
+    background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+/* Responsividade da Galeria */
+@media (max-width: 768px) {
+    .instagram-grid {
+        grid-template-columns: repeat(1, 1fr);
+        /* 1 coluna no mobile */
+        max-width: 350px;
+        /* Limita a largura para não ficar gigante */
+        margin-left: auto;
+        margin-right: auto;
+    }
+}

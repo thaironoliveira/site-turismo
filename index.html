@@ -6,9 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sienna Turismo - Sua Próxima Viagem Começa Aqui</title>
     <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="mystique-effect.css">
-    <script src="mystique-effect.js" defer></script>
+    <link rel="stylesheet" href="instagram-gallery.css">
     <script src="themes.js" defer></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 </head>
 
 <body>
@@ -21,16 +21,14 @@
             <a href="index.html" class="logo">
                 <!-- ÍCONE ESQUERDO DO TEMA SAZONAL -->
                 <div id="theme-badge-left" class="theme-badge-icon">
-                    <img id="theme-icon-left" src="images/icone-novembro-azul-final.png" alt="Ícone do Tema"
-                        style="height: 30px; display: none;">
+                    <img id="theme-icon-left" src="" alt="" style="display: none;" onerror="this.style.display='none'">
                 </div>
                 <span id="logo-text-sienna">Sienna</span>
                 <span id="logo-text-turismo">Turismo</span>
                 <img src="Logo-Sienna-Turismo.png.png" alt="Sienna Turismo Logo">
                 <!-- ÍCONE DIREITO DO TEMA SAZONAL -->
                 <div id="theme-badge-right" class="theme-badge-icon">
-                    <img id="theme-icon-right" src="images/icone-novembro-azul-final.png" alt="Ícone do Tema"
-                        style="height: 30px; display: none;">
+                    <img id="theme-icon-right" src="" alt="" style="display: none;" onerror="this.style.display='none'">
                 </div>
                 <!-- Tooltip único para o ícone -->
                 <span id="theme-tooltip">
@@ -120,7 +118,35 @@
 
             <!-- Widget do Instagram (Elfsight) -->
             <script src="https://static.elfsight.com/platform/platform.js" data-use-service-core defer></script>
-            <div class="elfsight-app-d8e0c8f5-6f5e-4c5a-9e5a-0c8f5e6f5e6f" data-elfsight-app-lazy></div>
+            <!-- Galeria Estática (Substituindo Widget) -->
+            <div class="instagram-grid">
+                <!-- Post 1 -->
+                <a href="https://www.instagram.com/sienna.turismo/" target="_blank" class="instagram-item">
+                    <img src="insta_caldas_waterpark_1765632409475.png" alt="Post Instagram Caldas Novas">
+                    <div class="insta-overlay">
+                        <i class="fab fa-instagram"></i>
+                        <span>Ver no Instagram</span>
+                    </div>
+                </a>
+
+                <!-- Post 2 -->
+                <a href="https://www.instagram.com/sienna.turismo/" target="_blank" class="instagram-item">
+                    <img src="insta_piri_street_1765632458722.png" alt="Post Instagram Pirenópolis">
+                    <div class="insta-overlay">
+                        <i class="fab fa-instagram"></i>
+                        <span>Ver no Instagram</span>
+                    </div>
+                </a>
+
+                <!-- Post 3 -->
+                <a href="https://www.instagram.com/sienna.turismo/" target="_blank" class="instagram-item">
+                    <img src="insta_porto_beach_1765632426539.png" alt="Post Instagram Porto Seguro">
+                    <div class="insta-overlay">
+                        <i class="fab fa-instagram"></i>
+                        <span>Ver no Instagram</span>
+                    </div>
+                </a>
+            </div>
 
             <div style="text-align: center; margin-top: 30px;">
                 <a href="https://www.instagram.com/sienna.turismo/" target="_blank" class="btn-secundario">

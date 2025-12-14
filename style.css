@@ -23,14 +23,17 @@
 
 :root {
     /* Cores da Logo Sienna Turismo */
-    --cor-principal: #9400D3;      /* Roxo Magenta */
-    --cor-secundaria: #00BFFF;     /* Azul Claro */
-    --cor-acento: #FFD700;         /* Amarelo Ouro */
-    
+    --cor-principal: #9400D3;
+    /* Roxo Magenta */
+    --cor-secundaria: #00BFFF;
+    /* Azul Claro */
+    --cor-acento: #FFD700;
+    /* Amarelo Ouro */
+
     /* Gradientes */
     --gradiente-principal: linear-gradient(135deg, var(--cor-principal), var(--cor-secundaria));
     --gradiente-acento: linear-gradient(135deg, var(--cor-acento), #ffeb80);
-    
+
     /* Cores de Texto e Fundo */
     --cor-texto: #333;
     --cor-fundo: #FFFFFF;
@@ -48,7 +51,8 @@
 }
 
 html {
-    scroll-behavior: smooth; /* Scroll suave */
+    scroll-behavior: smooth;
+    /* Scroll suave */
 }
 
 body {
@@ -71,7 +75,7 @@ body {
 
 .navbar {
     background: var(--cor-fundo);
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     padding: 1rem 0;
     position: sticky;
     top: 0;
@@ -82,19 +86,24 @@ body {
 
 .navbar .container {
     display: flex;
-    flex-direction: column; /* Força a quebra de linha entre a logo e o menu */
+    flex-direction: column;
+    /* Força a quebra de linha entre a logo e o menu */
     justify-content: center;
-    align-items: center; /* Centraliza a logo e o menu verticalmente */
+    align-items: center;
+    /* Centraliza a logo e o menu verticalmente */
 }
 
 /* Logo com Degradê */
-.logo, .logo-pacote {
-    font-size: 1.5em; /* Reduzido de 1.8em para 1.5em */
+.logo,
+.logo-pacote {
+    font-size: 2.5em;
+    /* Aumentado de 1.5em para 2.5em */
     font-weight: 800;
     text-decoration: none;
     display: flex;
     align-items: center;
-    gap: 5px;
+    gap: 10px;
+    /* Aumentado o gap */
     transition: all 1.5s ease-in-out;
     position: relative;
     /* Adicionando flex-shrink: 0 para evitar que a logo encolha e o ícone se desloque */
@@ -105,28 +114,39 @@ body {
 }
 
 /* Estilo base para as palavras Sienna e Turismo */
-#logo-text-sienna, #logo-text-turismo {
+#logo-text-sienna,
+#logo-text-turismo {
     /* O gradiente é aplicado aqui e DEVE ser atualizado quando o tema mudar */
-    background: linear-gradient(135deg, var(--cor-principal), var(--cor-secundaria));
+    /* background: linear-gradient(135deg, var(--cor-principal), var(--cor-secundaria)); */
+    /* -webkit-background-clip: text; */
+    /* background-clip: text; */
+    /* -webkit-text-fill-color: transparent; */
+    /* color: transparent; */
+    /* Forçando a transição do gradiente */
+    transition: all 5.0s ease-in-out;
+    display: inline-block;
+    color: var(--cor-principal);
+    /* Cor base sólida */
+}
+
+/* Efeito Onda: Cor e Transição */
+/* Efeito Onda: Cor e Transição */
+.wave-letter {
+    display: inline-block;
+    transition: all 5.0s ease-in-out;
+
+    /* Restaurando o degradê */
+    background: var(--gradiente-principal);
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
     color: transparent;
-    /* Forçando a transição do gradiente */
-    transition: all 3.0s ease-in-out; 
-    display: inline-block;
-}
-
-/* Efeito Onda: Cor e Transição */
-.wave-letter {
-    display: inline-block;
-    transition: color 1.5s ease-in-out; /* Transição de cor para o efeito onda (mais lenta) */
-    color: var(--cor-principal); /* Cor inicial (roxo) */
+    /* background-size removido para garantir que o gradiente cubra a letra inteira corretamente */
 }
 
 /* Garante que a cor mude quando o tema estiver ativo */
 .tema-ativo .wave-letter {
-    color: var(--cor-secundaria); /* Cor secundária do tema sazonal (azul quente) */
+    /* O gradiente muda via variável --gradiente-principal definida no tema */
 }
 
 /* O atraso (transition-delay) é definido via JavaScript para cada letra. */
@@ -140,8 +160,10 @@ body {
     font-weight: 500;
 }
 
-.logo img, .logo-pacote img {
-    height: 35px; /* Reduzido de 45px para 35px */
+.logo img,
+.logo-pacote img {
+    height: 55px;
+    /* Aumentado de 35px para 55px */
     width: auto;
     display: block;
 }
@@ -150,7 +172,8 @@ body {
 .logo-pacote {
     display: flex;
     align-items: center;
-    position: relative; /* Para posicionar o tooltip */
+    position: relative;
+    /* Para posicionar o tooltip */
     /* Garante que os elementos internos da logo fiquem centralizados */
     justify-content: center;
 }
@@ -158,39 +181,66 @@ body {
 /* Removido o estilo .logo-pacote span, pois agora usamos .wave-letter */
 
 .theme-badge-icon {
-    font-size: 1.5em;
-    color: var(--cor-principal); /* Cor inicial, será alterada pelo tema */
-    margin: 0 5px;
-    opacity: 0; /* Inicialmente invisível */
-    transition: opacity 3.0s ease-in-out, transform 0.5s ease-in-out, color 3.0s ease-in-out; /* Aumentando a transição de opacidade */
+    font-size: 0 !important;
+    /* Remove espaço extra e esconde alt text gigante */
+    color: var(--cor-principal);
+    margin: 0 10px;
+    /* Aumentado margem */
+    opacity: 0;
+    transition: opacity 3.0s ease-in-out, transform 0.5s ease-in-out;
     cursor: pointer;
-    /* Ajuste para ícones de imagem */
     display: flex;
     align-items: center;
     justify-content: center;
-    /* Garantindo que o ícone não ocupe espaço desnecessário antes de aparecer */
     width: 0;
     overflow: hidden;
-    transition: width 0.5s ease-in-out, opacity 3.0s ease-in-out, transform 0.5s ease-in-out, color 3.0s ease-in-out;
+    transition: width 0.5s ease-in-out, opacity 3.0s ease-in-out, transform 0.5s ease-in-out;
+}
+
+.theme-badge-icon img {
+    width: 100%;
+    height: auto;
+    max-height: 80px;
+    /* Aumentado significativamente */
+    object-fit: contain;
+    display: block;
 }
 
 .tema-ativo .theme-badge-icon {
-    color: var(--cor-secundaria); /* Cor que muda com o tema */
+    color: var(--cor-secundaria);
+    /* Cor que muda com o tema */
 }
 
 /* Animação de Balanço/Vibração */
 @keyframes shake {
-    0% { transform: rotate(0deg); }
-    25% { transform: rotate(5deg); }
-    50% { transform: rotate(-5deg); }
-    75% { transform: rotate(5deg); }
-    100% { transform: rotate(0deg); }
+    0% {
+        transform: rotate(0deg);
+    }
+
+    25% {
+        transform: rotate(5deg);
+    }
+
+    50% {
+        transform: rotate(-5deg);
+    }
+
+    75% {
+        transform: rotate(5deg);
+    }
+
+    100% {
+        transform: rotate(0deg);
+    }
 }
 
 .theme-badge-icon.active {
     opacity: 1;
-    animation: shake 1.0s infinite alternate; /* Aumentando a duração da animação para ser mais suave */
-    width: 30px; /* Largura para o ícone aparecer (reduzida para melhor proporção) */
+    animation: shake 1.0s infinite alternate;
+    /* Aumentando a duração da animação para ser mais suave */
+    width: 80px;
+    /* Aumentado de 30px para 80px */
+    /* Largura para o ícone aparecer */
     /* Garantindo que a imagem dentro do ícone não ultrapasse o contêiner */
     max-width: 100%;
     height: auto;
@@ -217,28 +267,32 @@ body {
     opacity: 0;
     transition: opacity 0.3s;
     font-size: 0.85em;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
-.theme-badge-icon:hover ~ #theme-tooltip {
+.theme-badge-icon:hover~#theme-tooltip {
     visibility: visible;
     opacity: 1;
 }
 
 /* Ajuste para o bigode */
 .fa-mustache {
-    transform: rotate(10deg); /* Inclinação leve */
+    transform: rotate(10deg);
+    /* Inclinação leve */
     transition: transform 0.5s ease-in-out;
 }
 
 #theme-icon-left.fa-mustache {
-    transform: scaleX(-1) rotate(10deg); /* Inverte e inclina para o lado esquerdo */
+    transform: scaleX(-1) rotate(10deg);
+    /* Inverte e inclina para o lado esquerdo */
 }
 
 /* Corrigindo a cor do texto da logo para a transição */
-#logo-text-sienna, #logo-text-turismo {
+#logo-text-sienna,
+#logo-text-turismo {
     /* A cor será controlada pelos spans internos (.wave-letter) */
-    white-space: nowrap; /* Impede quebra de linha dentro do span */
+    white-space: nowrap;
+    /* Impede quebra de linha dentro do span */
 }
 
 /* Corrigindo o problema de visibilidade da logo */
@@ -257,7 +311,8 @@ body {
     transition: color 1.5s ease-in-out;
     animation: pulsar 2s infinite alternate;
     z-index: 101;
-    margin-right: 5px; /* Espaço entre o ícone e o nome */
+    margin-right: 5px;
+    /* Espaço entre o ícone e o nome */
 }
 
 #theme-icon {
@@ -265,12 +320,16 @@ body {
 }
 
 /* Garante que a imagem da logo apareça */
-.logo img, .logo-pacote img {
+.logo img,
+.logo-pacote img {
     display: block;
 }
 
 /* Garante que o texto da logo apareça */
-.logo #logo-text-sienna, .logo #logo-text-turismo, .logo-pacote #logo-text-sienna, .logo-pacote #logo-text-turismo {
+.logo #logo-text-sienna,
+.logo #logo-text-turismo,
+.logo-pacote #logo-text-sienna,
+.logo-pacote #logo-text-turismo {
     display: inline-block;
 }
 
@@ -291,7 +350,7 @@ body {
     opacity: 0;
     transition: opacity 0.3s;
     font-size: 0.85em;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
 #theme-badge:hover #theme-tooltip {
@@ -302,13 +361,19 @@ body {
 /* Navegação */
 .navbar nav ul {
     list-style: none;
-    display: flex !important; /* Força a exibição flexível */
-    flex-direction: row !important; /* Força a direção horizontal */
+    display: flex !important;
+    /* Força a exibição flexível */
+    flex-direction: row !important;
+    /* Força a direção horizontal */
     gap: 20px;
-    flex-wrap: nowrap !important; /* Impede a quebra de linha */
-    margin: 10px 0 0 0; /* Remove margens laterais e adiciona espaço superior */
-    padding: 0; /* Remove padding */
-    justify-content: center; /* Centraliza os itens do menu */
+    flex-wrap: nowrap !important;
+    /* Impede a quebra de linha */
+    margin: 10px 0 0 0;
+    /* Remove margens laterais e adiciona espaço superior */
+    padding: 0;
+    /* Remove padding */
+    justify-content: center;
+    /* Centraliza os itens do menu */
 }
 
 .navbar nav a {
@@ -373,23 +438,29 @@ body {
 .hero h1 {
     font-size: 3em;
     margin-bottom: 10px;
-    text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 }
 
 .hero p {
     font-size: 1.2em;
     margin-bottom: 30px;
     max-width: 600px;
-    margin-left: auto; /* Centraliza o texto */
-    margin-right: auto; /* Centraliza o texto */
-    text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+    margin-left: auto;
+    /* Centraliza o texto */
+    margin-right: auto;
+    /* Centraliza o texto */
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
 }
 
 /* ============================================
  * 5. BOTÕES E ELEMENTOS INTERATIVOS
  * ============================================ */
 
-.btn-primario, .btn-secundario, .btn-whatsapp, .btn-comprar, .btn-pagar-final {
+.btn-primario,
+.btn-secundario,
+.btn-whatsapp,
+.btn-comprar,
+.btn-pagar-final {
     text-decoration: none;
     padding: 12px 25px;
     border-radius: 5px;
@@ -407,13 +478,16 @@ body {
 
 .btn-primario:hover {
     transform: translateY(-2px);
-    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
 .btn-secundario {
-    background: var(--gradiente-principal); /* Gradiente aplicado */
-    color: #fff; /* Cor do texto alterada para branco */
-    transition: background 3.0s ease, transform 0.3s ease; /* Transição do gradiente */
+    background: var(--gradiente-principal);
+    /* Gradiente aplicado */
+    color: #fff;
+    /* Cor do texto alterada para branco */
+    transition: background 3.0s ease, transform 0.3s ease;
+    /* Transição do gradiente */
 }
 
 .btn-secundario:hover {
@@ -471,13 +545,13 @@ body {
     background: white;
     border-radius: 8px;
     overflow: hidden;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
     transition: all 0.3s;
 }
 
 .card-destino:hover {
     transform: translateY(-5px);
-    box-shadow: 0 8px 16px rgba(0,0,0,0.15);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
 }
 
 .card-destino img {
@@ -536,7 +610,8 @@ body {
 .cta-section h2 {
     font-size: 2em;
     margin-bottom: 20px;
-    color: white; /* Força a cor branca */
+    color: white;
+    /* Força a cor branca */
 }
 
 .cta-section p {
@@ -568,7 +643,8 @@ body {
 }
 
 .site-footer .social-link:hover {
-    color: #E1306C; /* Cor do Instagram */
+    color: #E1306C;
+    /* Cor do Instagram */
 }
 
 .site-footer .social-link i {
@@ -606,8 +682,10 @@ body {
 
 /* Setembro Amarelo - Cores mais vibrantes */
 .tema-setembro-amarelo {
-    --cor-principal: #FFC300; /* Amarelo Ouro Forte */
-    --cor-secundaria: #FFDD33; /* Amarelo Claro Vibrante */
+    --cor-principal: #FFC300;
+    /* Amarelo Ouro Forte */
+    --cor-secundaria: #FFDD33;
+    /* Amarelo Claro Vibrante */
     --cor-acento: #000000;
     --gradiente-principal: linear-gradient(135deg, var(--cor-principal), var(--cor-secundaria));
     --cor-texto: #000000;
@@ -615,17 +693,22 @@ body {
 
 /* Outubro Rosa - Cores mais vibrantes */
 .tema-outubro-rosa {
-    --cor-principal: #E91E63; /* Rosa Pink Forte */
-    --cor-secundaria: #F8BBD0; /* Rosa Claro Vibrante */
+    --cor-principal: #E91E63;
+    /* Rosa Pink Forte */
+    --cor-secundaria: #F8BBD0;
+    /* Rosa Claro Vibrante */
     --cor-acento: #800080;
     --gradiente-principal: linear-gradient(135deg, var(--cor-principal), var(--cor-secundaria));
 }
 
 /* Novembro Azul - Cores mais quentes e gradiente */
 .tema-novembro-azul {
-    --cor-principal: #005A8D; /* Azul Escuro e Quente */
-    --cor-secundaria: #0088CC; /* Azul Médio e Quente */
-    --cor-acento: #00BFFF; /* Azul Claro */
+    --cor-principal: #005A8D;
+    /* Azul Escuro e Quente */
+    --cor-secundaria: #0088CC;
+    /* Azul Médio e Quente */
+    --cor-acento: #00BFFF;
+    /* Azul Claro */
     --gradiente-principal: linear-gradient(135deg, var(--cor-principal), var(--cor-secundaria));
 }
 
@@ -648,12 +731,12 @@ body {
 /* Transição Suave do Tema (Efeito Mística) - Aumentando a duração para ser mais perceptível */
 .tema-ativo {
     transition:
-        --cor-principal 3.0s ease-in-out, /* Dobrando a duração */
-        --cor-secundaria 3.0s ease-in-out, /* Dobrando a duração */
-        --cor-acento 3.0s ease-in-out, /* Dobrando a duração */
-        --gradiente-principal 3.0s ease-in-out, /* Dobrando a duração */
-        color 3.0s ease-in-out,
-        background-color 3.0s ease-in-out;
+        --cor-principal 5.0s ease-in-out,
+        --cor-secundaria 5.0s ease-in-out,
+        --cor-acento 5.0s ease-in-out,
+        --gradiente-principal 5.0s ease-in-out,
+        color 5.0s ease-in-out,
+        background-color 5.0s ease-in-out;
 }
 
 /* ============================================
@@ -665,10 +748,12 @@ body {
         transform: scale(1);
         opacity: 1;
     }
+
     50% {
         transform: scale(1.1);
         opacity: 0.8;
     }
+
     100% {
         transform: scale(1);
         opacity: 1;
@@ -680,6 +765,7 @@ body {
         opacity: 0;
         transform: translateY(20px);
     }
+
     to {
         opacity: 1;
         transform: translateY(0);
@@ -695,19 +781,24 @@ body {
  * ============================================ */
 
 @media (max-width: 768px) {
+
     /* Ajustes para telas de tablet */
     .navbar .container {
-        flex-wrap: nowrap; /* Impede que o menu quebre a linha */
+        flex-wrap: nowrap;
+        /* Impede que o menu quebre a linha */
     }
 
     .navbar nav ul {
-        flex-direction: row; /* Garante a direção horizontal */
-        justify-content: center; /* Centraliza o menu */
+        flex-direction: row;
+        /* Garante a direção horizontal */
+        justify-content: center;
+        /* Centraliza o menu */
         width: 100%;
     }
 
     .hero h1 {
-        font-size: 2.5em; /* Reduz a fonte do banner */
+        font-size: 2.5em;
+        /* Reduz a fonte do banner */
     }
 
     .hero p {
@@ -715,27 +806,32 @@ body {
     }
 
     .cards-container {
-        grid-template-columns: 1fr; /* Empilha os cards em telas menores */
+        grid-template-columns: 1fr;
+        /* Empilha os cards em telas menores */
     }
-}@media (max-width: 550px) {
+}
+
+@media (max-width: 550px) {
+
     /* Força o menu a ser horizontal em telas muito pequenas */
     .navbar .container {
-        flex-direction: row; /* Mantém a logo e o menu lado a lado */
-        flex-wrap: wrap; /* Permite que o menu quebre para a linha de baixo se não couber */
+        flex-direction: row;
+        /* Mantém a logo e o menu lado a lado */
+        flex-wrap: wrap;
+        /* Permite que o menu quebre para a linha de baixo se não couber */
         justify-content: space-between;
     }
 
     .navbar nav {
-        width: 100%; /* Ocupa a largura total para centralizar */
+        width: 100%;
+        /* Ocupa a largura total para centralizar */
         text-align: center;
     }
 
     .navbar nav ul {
-        justify-content: space-around !important; /* Distribui o espaço entre os itens */
-        flex-wrap: nowrap !important; /* IMPEDE a quebra de linha para forçar o horizontal */
-        padding: 0 10px; /* Adiciona um pequeno padding para não colar nas bordas */
-    } {
-        font-size: 1em;
+        justify-content: space-around !important;
+        flex-wrap: nowrap !important;
+        padding: 0 10px;
     }
 }
 
@@ -746,14 +842,17 @@ body {
 }
 
 @media (max-width: 768px) {
+
     /* Navbar - Mantém horizontal até 768px */
     .navbar .container {
         /* Mantém o flex-direction: row padrão */
-        flex-wrap: wrap; /* Permite quebra de linha se necessário */
+        flex-wrap: wrap;
+        /* Permite quebra de linha se necessário */
     }
 
     .navbar nav {
-        margin-left: auto; /* Empurra a navegação para a direita */
+        margin-left: auto;
+        /* Empurra a navegação para a direita */
     }
 
     /* Hero */
@@ -787,6 +886,7 @@ body {
 }
 
 @media (max-width: 550px) {
+
     /* Navbar - Torna vertical em telas muito pequenas */
     .navbar .container {
         flex-direction: column;
@@ -804,34 +904,34 @@ body {
     }
 }
 
-    /* Hero */
-    .hero h1 {
-        font-size: 2em;
-    }
+/* Hero */
+.hero h1 {
+    font-size: 2em;
+}
 
-    .hero p {
-        font-size: 1em;
-    }
+.hero p {
+    font-size: 1em;
+}
 
-    /* Cards */
-    .cards-container {
-        grid-template-columns: 1fr;
-    }
+/* Cards */
+.cards-container {
+    grid-template-columns: 1fr;
+}
 
-    /* Seções */
-    .destinos-section h2 {
-        font-size: 2em;
-    }
+/* Seções */
+.destinos-section h2 {
+    font-size: 2em;
+}
 
-    .cta-section h2 {
-        font-size: 1.5em;
-    }
+.cta-section h2 {
+    font-size: 1.5em;
+}
 
-    /* Tooltip */
-    #theme-tooltip {
-        width: 200px;
-        margin-left: -100px;
-    }
+/* Tooltip */
+#theme-tooltip {
+    width: 200px;
+    margin-left: -100px;
+}
 }
 
 @media (max-width: 480px) {
@@ -851,7 +951,8 @@ body {
         font-size: 0.9em;
     }
 
-    .btn-primario, .btn-secundario {
+    .btn-primario,
+    .btn-secundario {
         padding: 10px 20px;
         font-size: 0.9em;
     }
@@ -864,8 +965,39 @@ body {
 
 .navbar nav {
     display: flex;
-    justify-content: center; /* Centraliza o menu no mesmo eixo da logo */
-    width: 100%; /* Garante que o nav ocupe toda a largura */
+    justify-content: center;
+    /* Centraliza o menu no mesmo eixo da logo */
+    width: 100%;
+    /* Garante que o nav ocupe toda a largura */
 }
 
 /* Cache buster - v26 - 2025-11-14 */
+
+/* ============================================
+ * 10. DECORAÇÃO DO LOGO (SAZONAL)
+ * ============================================ */
+.s-decoration {
+    position: absolute;
+    top: -25px;
+    /* Ajuste conforme o tamanho do ícone */
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 24px;
+    z-index: 10;
+    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3));
+    animation: floatDecoration 3s ease-in-out infinite;
+    pointer-events: none;
+    /* Não interfere no clique */
+}
+
+@keyframes floatDecoration {
+
+    0%,
+    100% {
+        transform: translateX(-50%) translateY(0) rotate(0deg);
+    }
+
+    50% {
+        transform: translateX(-50%) translateY(-5px) rotate(5deg);
+    }
+}

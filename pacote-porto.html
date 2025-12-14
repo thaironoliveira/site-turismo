@@ -1,34 +1,40 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pacote Porto Seguro - Sienna Turismo</title>
     <link rel="stylesheet" href="style.css">
-  <script src="themes.js" defer></script>   <style>
+    <script src="themes.js" defer></script>
+    <style>
         /* Estilos específicos para a página de pacotes */
         .pacote-header {
             background: linear-gradient(135deg, rgba(148, 0, 211, 0.8), rgba(0, 191, 255, 0.8)), url('porto.jpg.png');
             background-size: cover;
             background-position: center;
-            color: white            padding: 100px 0 60px;
+            color: white padding: 100px 0 60px;
             text-align: center;
             /* Corrigindo a sobreposição do menu fixo */
-            padding-top: 100px; /* Aumenta o padding superior para compensar o menu fixo */ sobreposição do menu fixo */
-            padding-top: 100px; /* Aumenta o padding superior para compensar o menu fixo */
+            padding-top: 100px;
+            /* Aumenta o padding superior para compensar o menu fixo */
+            sobreposição do menu fixo */ padding-top: 100px;
+            /* Aumenta o padding superior para compensar o menu fixo */
         }
 
         .pacote-header h1 {
             font-size: 3em;
             margin-bottom: 10px;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
-            color: white; /* Corrigindo para branco */
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+            color: white;
+            /* Corrigindo para branco */
         }
 
         .pacote-header p {
             font-size: 1.3em;
-            text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
-            color: white; /* Corrigindo para branco */
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+            color: white;
+            /* Corrigindo para branco */
         }
 
         .pacote-content {
@@ -94,7 +100,7 @@
             position: relative;
             overflow: hidden;
             border-radius: 8px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
             cursor: pointer;
             transition: transform 0.3s;
         }
@@ -115,7 +121,7 @@
             bottom: 0;
             left: 0;
             right: 0;
-            background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+            background: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent);
             color: white;
             padding: 15px;
             transform: translateY(100%);
@@ -192,7 +198,7 @@
 
         .btn-comprar:hover {
             transform: translateY(-2px);
-            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
         }
 
         /* Responsividade */
@@ -229,7 +235,10 @@
             }
         }
     </style>
+    <link rel="stylesheet" href="lightbox.css">
+    <script src="lightbox.js" defer></script>
 </head>
+
 <body>
 
     <!-- CABEÇALHO -->
@@ -238,14 +247,16 @@
             <a href="index.html" class="logo-pacote">
                 <!-- ÍCONE ESQUERDO DO TEMA SAZONAL -->
                 <div id="theme-badge-left" class="theme-badge-icon">
-                    <img id="theme-icon-left" src="images/icone-novembro-azul-final.png" alt="Ícone do Tema" style="height: 30px; display: none;">
+                    <img id="theme-icon-left" src="images/icone-novembro-azul-final.png" alt="Ícone do Tema"
+                        style="height: 30px; display: none;">
                 </div>
                 <span id="logo-text-sienna">Sienna</span>
                 <span id="logo-text-turismo">Turismo</span>
                 <img src="Logo-Sienna-Turismo.png.png" alt="Sienna Turismo Logo">
                 <!-- ÍCONE DIREITO DO TEMA SAZONAL -->
                 <div id="theme-badge-right" class="theme-badge-icon">
-                    <img id="theme-icon-right" src="images/icone-novembro-azul-final.png" alt="Ícone do Tema" style="height: 30px; display: none;">
+                    <img id="theme-icon-right" src="images/icone-novembro-azul-final.png" alt="Ícone do Tema"
+                        style="height: 30px; display: none;">
                 </div>
                 <!-- Tooltip único para o ícone -->
                 <span id="theme-tooltip">
@@ -277,7 +288,9 @@
             <div class="pacote-detalhes">
                 <h2>Sobre o Pacote</h2>
                 <p>
-                    Porto Seguro é o berço do Brasil e um dos destinos de praia mais vibrantes do país. Este pacote oferece uma experiência completa de sol, mar e história, com transporte em ônibus e acesso aos melhores pontos turísticos.
+                    Porto Seguro é o berço do Brasil e um dos destinos de praia mais vibrantes do país. Este pacote
+                    oferece uma experiência completa de sol, mar e história, com transporte em ônibus e acesso aos
+                    melhores pontos turísticos.
                 </p>
 
                 <h2>O que está incluído</h2>
@@ -309,6 +322,15 @@
                                 <p>Pé na areia e muita diversão</p>
                             </div>
                         </div>
+
+                        <!-- RESORT 3 (NOVO) -->
+                        <div class="galeria-item">
+                            <img src="porto-seguro/hotel-3.png" alt="Piscina com Vista Mar">
+                            <div class="galeria-item-overlay">
+                                <strong>Piscina com Vista Mar</strong>
+                                <p>Luxo e relaxamento à beira-mar</p>
+                            </div>
+                        </div>
                     </div>
                 </div>
 
@@ -325,12 +347,14 @@
             <!-- COLUNA DIREITA: RESUMO E COMPRA -->
             <div class="pacote-resumo">
                 <h3>Consultar Preços e Reservar</h3>
-                
+
                 <p style="text-align: center; color: #666; margin: 20px 0;">
-                    Os preços variam de acordo com a data e disponibilidade. Entre em contato para consultar valores e fazer sua reserva!
+                    Os preços variam de acordo com a data e disponibilidade. Entre em contato para consultar valores e
+                    fazer sua reserva!
                 </p>
 
-                <a href="https://wa.me/5561991858785?text=Ol%C3%A1!%20Gostaria%20de%20saber%20mais%20sobre%20o%20pacote%20de%20Porto%20Seguro%20e%20consultar%20pre%C3%A7os." target="_blank" class="btn-comprar">
+                <a href="https://wa.me/5561991858785?text=Ol%C3%A1!%20Gostaria%20de%20saber%20mais%20sobre%20o%20pacote%20de%20Porto%20Seguro%20e%20consultar%20pre%C3%A7os."
+                    target="_blank" class="btn-comprar">
                     <i class="fab fa-whatsapp"></i> Consultar via WhatsApp
                 </a>
 
@@ -345,11 +369,13 @@
     <footer class="site-footer">
         <p>© 2025 Sienna Turismo. Todos os direitos reservados.</p>
         <div class="social-links">
-            <a href="https://www.instagram.com/sienna.turismo/" target="_blank" rel="noopener noreferrer" class="social-link">
+            <a href="https://www.instagram.com/sienna.turismo/" target="_blank" rel="noopener noreferrer"
+                class="social-link">
                 <i class="fab fa-instagram"></i> @sienna.turismo
             </a>
         </div>
     </footer>
 
 </body>
+
 </html>
